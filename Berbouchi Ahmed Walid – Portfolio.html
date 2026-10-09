@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Berbouchi Ahmed Walid – Télécommunications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  --bg:#f2f6f5; --surface:#ffffff; --ink:#26292b; --muted:#5d6568; --line:#d3dcda;
+  --teal:#1f9d8d; --glow:#2fd1bd; --sand:#c98a2b; --night:#232628;
+  --display:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;
+  --body:'Instrument Sans','Segoe UI',Arial,sans-serif;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#191c1d;--surface:#232729;--ink:#e8eeed;--muted:#9aa5a7;--line:#394042;--teal:#38c7b4;--sand:#e0a84c}
+}
+:root[data-theme="dark"]{--bg:#191c1d;--surface:#232729;--ink:#e8eeed;--muted:#9aa5a7;--line:#394042;--teal:#38c7b4;--sand:#e0a84c}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sand);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1040px,100% - 2.5rem);margin-inline:auto}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:58px}
+nav .logo{font:800 1.1rem var(--display);text-decoration:none;letter-spacing:-.01em}
+nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;font-size:.95rem}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500}
+nav ul a:hover{color:var(--ink)}
+.tools{display:flex;gap:.5rem}
+.tools button{font:600 .85rem var(--body);background:none;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:.35rem .8rem;cursor:pointer}
+.tools button:hover{border-color:var(--teal)}
+@media(max-width:720px){nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--night);color:#eef4f3;padding:clamp(4rem,12vw,9rem) 0 clamp(4rem,10vw,7rem)}
+.hero svg{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.strand{fill:none;stroke-width:2;stroke-linecap:round}
+.strand.base{stroke:#3a4144}
+.strand.pulse{stroke:var(--glow);stroke-dasharray:60 900;animation:travel 7s linear infinite;filter:drop-shadow(0 0 6px var(--glow))}
+.strand.pulse:nth-of-type(4){animation-duration:9s;animation-delay:-3s;stroke:var(--sand)}
+.strand.pulse:nth-of-type(6){animation-duration:11s;animation-delay:-6s}
+@keyframes travel{from{stroke-dashoffset:960}to{stroke-dashoffset:0}}
+.hero .wrap{position:relative}
+.mono{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;border:2px solid var(--glow);font:800 1.7rem var(--display);color:var(--glow);margin-bottom:1.6rem;box-shadow:0 0 28px rgba(47,209,189,.25)}
+h1{font:800 clamp(2.6rem,8vw,5.6rem)/.98 var(--display);letter-spacing:-.03em;margin:0 0 1.2rem}
+h1 span{color:var(--glow);display:block}
+.hero p.lead{max-width:34rem;font-size:1.2rem;color:#c3cfcd;margin:0 0 2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:10px;font-weight:600;text-decoration:none;border:1.5px solid transparent}
+.btn.main{background:var(--glow);color:#10211f}
+.btn.main:hover{background:#6fe6d6}
+.btn.ghost{border-color:#566063;color:#eef4f3}
+.btn.ghost:hover{border-color:var(--glow)}
+
+/* sections */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+h2{font:800 clamp(1.8rem,4vw,2.6rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 .6rem}
+.sub{color:var(--muted);max-width:36rem;margin:0 0 2.8rem}
+
+/* fibre timeline */
+.timeline{position:relative;padding-left:3rem}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:4px;border-radius:4px;background:var(--line)}
+.fill{position:absolute;left:11px;top:6px;width:4px;height:0;border-radius:4px;background:linear-gradient(var(--teal),var(--glow));box-shadow:0 0 14px var(--glow)}
+.step{position:relative;padding-bottom:2.2rem}
+.step:last-child{padding-bottom:0}
+.step::before{content:"";position:absolute;left:-2.55rem;top:.45rem;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--line);transition:.3s}
+.step.lit::before{border-color:var(--glow);background:var(--glow);box-shadow:0 0 0 5px rgba(47,209,189,.2),0 0 14px var(--glow)}
+.year{font:800 1.5rem var(--display);color:var(--teal)}
+.step h3{margin:.1rem 0 .15rem;font:700 1.15rem/1.35 var(--display)}
+.step p{margin:0;color:var(--muted)}
+.step.top .year{color:var(--sand)}
+
+/* skills */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.6rem}
+.card.accent{border-left:5px solid var(--teal)}
+.card h3{font:700 1.2rem var(--display);margin:0 0 1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
+.chips li{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.3rem .85rem;font-size:.95rem;font-weight:500}
+.lang{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.lang:last-child{border:0}
+.dots{display:flex;gap:5px}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--teal)}
+.lvl{font-size:.85rem;color:var(--muted);margin-left:.7rem}
+
+/* experience */
+.exp{display:flex;gap:1.5rem;align-items:flex-start;background:var(--night);color:#eef4f3;border-radius:16px;padding:clamp(1.5rem,4vw,2.4rem)}
+.exp .tag{flex:none;background:var(--glow);color:#10211f;font:700 .85rem var(--body);border-radius:8px;padding:.35rem .7rem}
+.exp h3{font:700 1.4rem var(--display);margin:0 0 .4rem}
+.exp p{margin:0;color:#c3cfcd}
+@media(max-width:600px){.exp{flex-direction:column}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.contact a,.contact div.row{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.3rem;text-decoration:none;transition:border-color .2s}
+.contact a:hover{border-color:var(--teal)}
+.contact small{display:block;color:var(--muted);font-size:.85rem}
+.contact b{font-weight:600;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:1.6rem 0;color:var(--muted);font-size:.9rem}
+#toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:.6rem 1.1rem;border-radius:8px;opacity:0;transition:.3s;pointer-events:none;font-weight:500}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.strand.pulse{animation:none;stroke-dasharray:none;opacity:.35}.step::before,.contact a,#toast{transition:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">A. Walid Berbouchi</a>
+    <ul>
+      <li><a href="#formation" data-fr="Formation" data-en="Education">Formation</a></li>
+      <li><a href="#competences" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+      <li><a href="#experience" data-fr="Expérience" data-en="Experience">Expérience</a></li>
+      <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+    </ul>
+    <div class="tools">
+      <button id="theme" aria-label="Changer de thème">◐</button>
+      <button id="lang" aria-label="Language">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path class="strand base" d="M-20 480 C 250 380, 420 560, 700 430 S 1100 330, 1240 380"/>
+    <path class="strand pulse" d="M-20 480 C 250 380, 420 560, 700 430 S 1100 330, 1240 380"/>
+    <path class="strand base" d="M-20 540 C 300 470, 520 600, 800 500 S 1100 450, 1240 470"/>
+    <path class="strand pulse" d="M-20 540 C 300 470, 520 600, 800 500 S 1100 450, 1240 470"/>
+    <path class="strand base" d="M-20 430 C 200 330, 480 490, 760 370 S 1080 260, 1240 300"/>
+    <path class="strand pulse" d="M-20 430 C 200 330, 480 490, 760 370 S 1080 260, 1240 300"/>
+  </svg>
+  <div class="wrap">
+    <div class="mono" aria-hidden="true">AW</div>
+    <h1>Berbouchi <span>Ahmed Walid</span></h1>
+    <p class="lead" data-fr="Master en systèmes de télécommunication. Fibre optique, soudure et tests, réseaux LAN et installation de caméras IP."
+       data-en="Master's in telecommunication systems. Fiber optics, splicing and testing, LAN networks and IP camera installation.">Master en systèmes de télécommunication. Fibre optique, soudure et tests, réseaux LAN et installation de caméras IP.</p>
+    <div class="btns">
+      <a class="btn main" href="#contact" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
+      <a class="btn ghost" href="#formation" data-fr="Voir mon parcours" data-en="See my path">Voir mon parcours</a>
+    </div>
+  </div>
+</header>
+
+<section id="formation">
+  <div class="wrap">
+    <h2 data-fr="Formation" data-en="Education">Formation</h2>
+    <p class="sub" data-fr="Du primaire à la fibre optique : un parcours en ligne droite vers les télécommunications."
+       data-en="From primary school to fiber optics: a straight line into telecommunications.">Du primaire à la fibre optique : un parcours en ligne droite vers les télécommunications.</p>
+    <div class="timeline" id="tl">
+      <div class="fill" id="fill"></div>
+      <div class="step"><div class="year">2008–2009</div><h3 data-fr="Certificat de fin d'études primaires" data-en="Primary school certificate">Certificat de fin d'études primaires</h3><p>École primaire Zaouia El Kebira</p></div>
+      <div class="step"><div class="year">2012–2013</div><h3>BEM</h3><p>CEM Zaouia El Kebira, Kerzaz, Béni-Abbès</p></div>
+      <div class="step"><div class="year">2016</div><h3 data-fr="Baccalauréat – Génie électrique" data-en="Baccalaureate – Electrical Engineering">Baccalauréat – Génie électrique</h3><p data-fr="Lycée de Kerzaz, Béni-Abbès" data-en="Kerzaz high school, Béni-Abbès">Lycée de Kerzaz, Béni-Abbès</p></div>
+      <div class="step"><div class="year">2019</div><h3 data-fr="Licence en télécommunications" data-en="Bachelor's in Telecommunications">Licence en télécommunications</h3><p data-fr="Université de Béchar" data-en="University of Béchar">Université de Béchar</p></div>
+      <div class="step"><div class="year">2021</div><h3 data-fr="Master en systèmes de télécommunication" data-en="Master's in Telecommunication Systems">Master en systèmes de télécommunication</h3><p data-fr="Université de Béchar" data-en="University of Béchar">Université de Béchar</p></div>
+      <div class="step top"><div class="year">2023</div><h3 data-fr="Certificat : fibre optique, soudure et tests, réseaux LAN, caméras IP" data-en="Certificate: fiber optics, splicing and testing, LAN networks, IP cameras">Certificat : fibre optique, soudure et tests, réseaux LAN, caméras IP</h3><p data-fr="Formation professionnelle" data-en="Professional training">Formation professionnelle</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="competences" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
+    <p class="sub" data-fr="Ce que je sais faire sur le terrain et au bureau." data-en="What I can do in the field and at the desk.">Ce que je sais faire sur le terrain et au bureau.</p>
+    <div class="grid">
+      <div class="card accent">
+        <h3 data-fr="Réseaux et fibre" data-en="Networks and fiber">Réseaux et fibre</h3>
+        <ul class="chips">
+          <li data-fr="Fibre optique" data-en="Fiber optics">Fibre optique</li>
+          <li data-fr="Soudure de fibres" data-en="Fiber splicing">Soudure de fibres</li>
+          <li data-fr="Tests de liaison" data-en="Link testing">Tests de liaison</li>
+          <li data-fr="Réseaux LAN" data-en="LAN networks">Réseaux LAN</li>
+          <li data-fr="Caméras IP" data-en="IP cameras">Caméras IP</li>
+          <li data-fr="Systèmes de télécommunication" data-en="Telecom systems">Systèmes de télécommunication</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-fr="Langues et outils" data-en="Languages and tools">Langues et outils</h3>
+        <div class="lang"><span data-fr="Français" data-en="French">Français</span><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <div class="lang"><span data-fr="Anglais" data-en="English">Anglais</span><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <div class="lang"><span data-fr="Informatique" data-en="Computing">Informatique</span><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <p style="margin:.8rem 0 0;color:var(--muted);font-size:.9rem" data-fr="Niveau intermédiaire dans chacun." data-en="Intermediate level in each.">Niveau intermédiaire dans chacun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 data-fr="Expérience" data-en="Experience">Expérience</h2>
+    <p class="sub" data-fr="Une première expérience pratique dans l'infrastructure de télécommunication." data-en="A first hands-on experience in telecom infrastructure.">Une première expérience pratique dans l'infrastructure de télécommunication.</p>
+    <div class="exp">
+      <span class="tag" data-fr="Stage" data-en="Internship">Stage</span>
+      <div>
+        <h3 data-fr="Stage pratique au centre d'amplification de Béni-Abbès" data-en="Practical internship at the Béni-Abbès amplification center">Stage pratique au centre d'amplification de Béni-Abbès</h3>
+        <p data-fr="Mise en pratique des acquis du Master sur une installation de télécommunication réelle." data-en="Applying Master's coursework on a real telecommunication installation.">Mise en pratique des acquis du Master sur une installation de télécommunication réelle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <h2 data-fr="Contact" data-en="Contact">Contact</h2>
+    <p class="sub" data-fr="Disponible pour des missions et des offres en télécommunications." data-en="Available for telecom assignments and job offers.">Disponible pour des missions et des offres en télécommunications.</p>
+    <div class="contact">
+      <a href="mailto:berbouchiw@yahoo.com" id="mail"><small>Email</small><b>berbouchiw@yahoo.com</b></a>
+      <a href="tel:+213674218632"><small data-fr="Téléphone" data-en="Phone">Téléphone</small><b>0674 21 86 32</b></a>
+      <div class="row"><small data-fr="Adresse" data-en="Address">Adresse</small><b>Zaouia El Kebira, Kerzaz, Béni-Abbès</b></div>
+      <div class="row"><small data-fr="Profil" data-en="Profile">Profil</small><b data-fr="24 ans, Algérien" data-en="24 years old, Algerian">24 ans, Algérien</b></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 Berbouchi Ahmed Walid</div></footer>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+  var root=document.documentElement, lang='fr';
+  var els=document.querySelectorAll('[data-fr]');
+  document.getElementById('lang').onclick=function(){
+    lang=lang==='fr'?'en':'fr';
+    root.lang=lang;
+    els.forEach(function(e){e.textContent=e.getAttribute('data-'+lang)});
+    this.textContent=lang==='fr'?'EN':'FR';
+  };
+  document.getElementById('theme').onclick=function(){
+    var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+    root.setAttribute('data-theme',dark?'light':'dark');
+  };
+  // fibre lights up as you scroll through the timeline
+  var tl=document.getElementById('tl'), fill=document.getElementById('fill'), steps=[].slice.call(tl.querySelectorAll('.step'));
+  function update(){
+    var r=tl.getBoundingClientRect(), vh=window.innerHeight, probe=vh*0.6;
+    var h=Math.max(0,Math.min(r.height-12,probe-r.top));
+    fill.style.height=h+'px';
+    steps.forEach(function(s){ s.classList.toggle('lit', s.getBoundingClientRect().top < probe); });
+  }
+  addEventListener('scroll',update,{passive:true}); addEventListener('resize',update); update();
+  // copy email
+  var toast=document.getElementById('toast');
+  document.getElementById('mail').addEventListener('contextmenu',function(){});
+  document.getElementById('mail').addEventListener('click',function(e){
+    if(navigator.clipboard){
+      navigator.clipboard.writeText('berbouchiw@yahoo.com').then(function(){
+        toast.textContent=lang==='fr'?'Email copié':'Email copied';
+        toast.classList.add('show'); setTimeout(function(){toast.classList.remove('show')},1800);
+      }).catch(function(){});
+    }
+  });
+})();
+</script>
+</body>
+</html>
